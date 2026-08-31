@@ -205,16 +205,16 @@ img {
 
 /* ========== 3D EFFECTS ========== */
 .tilt-3d {
-    transform-style: preserve-3d;
-    will-change: transform;
+    transform-style: flat;
+    will-change: auto;
 }
 
 .tilt-3d-inner {
-    transform-style: preserve-3d;
+    transform-style: flat;
 }
 
 .tilt-3d-inner > * {
-    transform: translateZ(20px);
+    transform: none;
 }
 
 .tilt-3d-glow {
@@ -2141,6 +2141,40 @@ a.contact-card {
     height: 300px;
     object-fit: cover;
     border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.cert-modal-content {
+    max-width: 860px;
+}
+
+.cert-modal-content .modal-title {
+    padding: 25px 30px 16px;
+}
+
+.cert-viewer-wrap {
+    position: relative;
+    padding: 0 30px;
+    height: 60vh;
+    min-height: 360px;
+}
+
+.cert-viewer-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+    background: #fff;
+}
+
+.cert-modal-footer {
+    padding: 20px 30px 30px;
+    text-align: center;
+}
+
+.cert-modal-footer .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .modal-title {

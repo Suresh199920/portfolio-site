@@ -965,30 +965,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ========== 3D CARD TILT EFFECT ==========
-    function init3DTilt() {
-        const tiltCards = document.querySelectorAll('.tilt-3d');
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const maxTilt = 8;
-                const rotateX = ((y - centerY) / centerY) * -maxTilt;
-                const rotateY = ((x - centerX) / centerX) * maxTilt;
-                card.style.transition = 'none';
-                card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
-                card.style.setProperty('--mx', `${(x / rect.width) * 100}%`);
-                card.style.setProperty('--my', `${(y / rect.height) * 100}%`);
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transition = 'transform 0.4s ease-out';
-                card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0)';
-            });
-        });
-    }
+    // 3D card tilt disabled (removed on request to reduce motion)
 
     // ========== 3D HERO PARALLAX ==========
     function initHero3D() {
@@ -1399,8 +1376,56 @@ document.addEventListener('DOMContentLoaded', () => {
         initFirebase();
     }
 
+    // ========== CERTIFICATE VIEWER MODAL ==========
+    const certModal = document.getElementById('certModal');
+    const certViewer = document.getElementById('certViewer');
+    const certModalTitle = document.getElementById('certModalTitle');
+    const certOpenLink = document.getElementById('certOpenLink');
+
+    window.openCertificate = function(linkEl) {
+        if (!certModal) return;
+        const url = linkEl.getAttribute('href') || '';
+        const fileIdMatch = url.match(/\/file\/d\/([^/]+)/);
+        if (!fileIdMatch) {
+            window.open(url, '_blank');
+            return;
+        }
+        const fileId = fileIdMatch[1];
+        const title = (linkEl.getAttribute('data-title') || linkEl.textContent || 'Certificate').trim();
+        certModalTitle.textContent = title;
+        certOpenLink.setAttribute('href', url);
+        certViewer.src = 'https://drive.google.com/file/d/' + encodeURIComponent(fileId) + '/preview';
+        certModal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeCertificate = function() {
+        if (!certModal) return;
+        certModal.classList.remove('show');
+        document.body.style.overflow = '';
+        setTimeout(() => { certViewer.src = ''; }, 250);
+    };
+
+    function initCertificateViewer() {
+        if (!certModal) return;
+        const closeBtn = document.getElementById('certClose');
+        if (closeBtn) closeBtn.addEventListener('click', closeCertificate);
+        certModal.addEventListener('click', (e) => {
+            if (e.target === certModal) closeCertificate();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCertificate();
+        });
+        document.querySelectorAll('[data-cert-link]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCertificate(link);
+            });
+        });
+    }
+
     // Init all 3D effects
-    init3DTilt();
+    // init3DTilt removed — card tilt disabled on request
     initHero3D();
     init3DParticles();
     initCardGlow();
@@ -1410,6 +1435,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initLiveLocation();
     initCaseSlider();
     initLiveEngagement();
+    initCertificateViewer();
 
     // Restore unlock state on load
     if (isUnlocked()) {
