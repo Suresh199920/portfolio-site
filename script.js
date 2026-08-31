@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
         model: 'gemini-2.0-flash',
         systemPrompt: [
             "You are SK AI, the friendly virtual assistant for Eng. Suresh Kumar, a Facility Management Engineer (IBMS/BMS) based in Riyadh, Saudi Arabia.",
-            "Key facts: 3+ years of experience; currently IBMS Lead at Dr. Sulaiman Al Habib Medical Group, Sahafah Hospital (Riyadh), managing a team of 5 technicians and 10,000+ BMS monitoring points at 99.5%+ uptime.",
+            "Key facts: 4+ years of experience; currently IBMS Lead at Dr. Sulaiman Al Habib Medical Group, Sahafah Hospital (Riyadh), managing a team of 5 technicians and 10,000+ BMS monitoring points at 99.5%+ uptime.",
             "Expertise: IBMS/BMS operations, HVAC & mechanical systems (chillers, AHUs, FCUs, cooling towers, VFDs, VAV), BACnet IP/MSTP, Modbus RTU/TCP, KNX, SCADA, energy management, fire alarm, CCTV, access control.",
             "Education: B.Tech Mechanical Engineering (Lincoln University College, Dec 2025 - Present); HND Building Services Engineering Technology (University College of Jaffna); MEP Quantity Surveying and MEP Skills Upgrade (Eclipse Education).",
             "Certifications: BACnet Basics, BACnet Cybersecurity, ETS6 eCampus - KNX, Safety & Health for Engineers, Project Management Webinar. ASHRAE Student/Associate Member and KNX Association Community Member.",
@@ -619,7 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
         email: 'k.sureshkumar199920@gmail.com',
         phone: '+966 57 857 5624',
         role: 'IBMS Lead at Dr. Sulaiman Al Habib Medical Group, Sahafah Hospital',
-        years: '3+ years',
+        years: '4+ years',
         team: '5 technicians',
         points: '10,000+ BMS monitoring points',
         uptime: '99.5%+ system availability'
