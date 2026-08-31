@@ -1,0 +1,14 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Screenshots / local artifacts
+screenshot_*.png
+
+# Env files (do not commit secrets)
+.env
+.env.local
+.env.example
+
+# Next.js build (sports-club)
+.next/
