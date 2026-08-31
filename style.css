@@ -2718,6 +2718,19 @@ a.contact-card {
         align-items: center;
     }
 
+    .hero-right {
+        align-items: center;
+    }
+
+    /* Show profile picture first on mobile, then name/content */
+    .hero-right {
+        order: 1;
+    }
+
+    .hero-left {
+        order: 2;
+    }
+
     .hero-desc {
         max-width: 100%;
     }
@@ -2728,10 +2741,6 @@ a.contact-card {
 
     .hero-scroll {
         justify-content: center;
-    }
-
-    .hero-right {
-        align-items: center;
     }
 
     .about-grid {
