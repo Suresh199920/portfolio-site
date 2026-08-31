@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suresh Kumar K | Facility Management Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========== INTRO OVERLAY ========== -->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="intro-content">
+            <p class="intro-welcome" id="introWelcome"></p>
+            <h1 class="intro-name" id="introName"></h1>
+            <p class="intro-title">Facility Management Engineer | BMS | MEP | HVAC | Mechanical Engineer</p>
+            <div class="intro-loader"><span></span><span></span><span></span></div>
+        </div>
+    </div>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="nav-logo">SK<span>.</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="home" class="hero hero-3d">
+        <div class="hero-bg-slideshow">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop&q=80')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1920&h=1080&fit=crop&q=80')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&h=1080&fit=crop&q=80')"></div>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-container">
+            <!-- Left Content -->
+            <div class="hero-left">
+                <p class="hero-greeting anim-hero" style="--d:0s">Hello, I'm</p>
+                <h1 class="hero-name anim-hero" style="--d:0.15s">K.SURESHKUMAR</h1>
+                <h2 class="hero-role anim-hero" style="--d:0.3s"><span class="typing-text" id="typingText"></span><span class="cursor">|</span></h2>
+                <p class="hero-desc anim-hero" style="--d:0.45s">Mechanical Engineer | Facility Management Engineer | BMS Engineer | HVAC Engineer | MEP Engineer</p>
+                <div class="hero-btns anim-hero" style="--d:0.6s">
+                    <a href="#" class="btn btn-primary btn-3d" onclick="requestAccess('resume'); return false;"><i class="fas fa-download"></i> Resume</a>
+                    <a href="#contact" class="btn btn-outline btn-3d"><i class="fas fa-envelope"></i> Contact Me</a>
+                </div>
+                <div class="hero-scroll anim-hero" style="--d:0.8s">
+                    <a href="#about" class="scroll-btn" aria-label="Scroll down">
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="hero-right">
+                <div class="hero-image-wrapper anim-hero" style="--d:0.3s">
+                    <div class="hero-image-bg"></div>
+                    <div class="hero-image">
+                        <img src="Image 1.jpg" alt="K.SURESHKUMAR">
+                        <div class="profile-lock" id="profileLock" onclick="requestAccess('profile'); return false;">
+                            <div class="profile-lock-inner">
+                                <i class="fas fa-lock"></i>
+                                <span>Profile Protected</span>
+                                <button class="btn btn-primary btn-3d"><i class="fas fa-unlock-alt"></i> Unlock Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Info Cards -->
+                <div class="side-cards anim-hero" style="--d:0.5s">
+                    <div class="side-card">
+                        <div class="side-card-icon"><i class="fas fa-user"></i></div>
+                        <div>
+                            <h4>Professional Title</h4>
+                            <p>Facility Management Engineer</p>
+                        </div>
+                        <a href="#about" class="side-card-link"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="side-card">
+                        <div class="side-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Location</h4>
+                            <p class="live-location"><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</p>
+                        </div>
+                        <a href="#contact" class="side-card-link"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="hero-social anim-hero" style="--d:0.7s">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="section about">
+        <div class="section-bg-icons">
+            <div class="bg-icon"><i class="fas fa-drafting-compass"></i></div>
+            <div class="bg-icon"><i class="fas fa-cogs"></i></div>
+            <div class="bg-icon"><i class="fas fa-brain"></i></div>
+            <div class="bg-icon"><i class="fas fa-bolt"></i></div>
+            <div class="bg-icon"><i class="fas fa-tools"></i></div>
+            <div class="bg-icon"><i class="fas fa-project-diagram"></i></div>
+            <div class="bg-icon"><i class="fas fa-fan"></i></div>
+            <div class="bg-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="bg-icon"><i class="fas fa-wind"></i></div>
+        </div>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image anim-scroll fade-left">
+                    <div class="about-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&h=600&fit=crop&q=80" alt="MEP Engineering Work">
+                    </div>
+                    <div class="about-exp-badge">
+                        <span class="exp-number">3+</span>
+                        <span class="exp-text">Years of<br>Experience</span>
+                    </div>
+                </div>
+                <div class="about-content anim-scroll fade-right">
+                    <p class="section-tag">About Me</p>
+                    <h2 class="section-title">Mechanical Engineer<br>Building Smart Systems</h2>
+                    <p class="about-text">Experienced Mechanical Engineer with 3+ years of progressive experience in integrated building management, HVAC and MEP systems operation, preventive maintenance, and facility services within large-scale healthcare and commercial environments.</p>
+                    <p style="text-align: justify;">Currently serving as BMS Supervisor at Dr. Sulaiman Al Habib Medical Group, Sahafah Hospital — one of Saudi Arabia's largest private hospital groups — overseeing 24/7 operation and maintenance of all building systems across a major hospital facility. Manages a team of 5 technicians, 10,000+ BMS monitoring points, and mission-critical MEP services including HVAC, electrical, plumbing, fire alarm, CCTV, and access control at 99.5%+ uptime. Skilled in facility management planning, asset management, vendor coordination, energy optimization, HSE compliance, and smart building technologies (BACnet, Modbus, KNX).</p>
+                    <div class="ai-terminal anim-scroll fade-up" style="--d:0.3s">
+                        <div class="terminal-header">
+                            <span class="terminal-dots"><i></i><i></i><i></i></span>
+                            <span class="terminal-title"><i class="fas fa-microchip"></i> SK-AI System Diagnostics</span>
+                            <span class="terminal-status"><i class="fas fa-circle"></i> ONLINE</span>
+                        </div>
+                        <div class="terminal-body" id="aiTerminalBody">
+                            <div class="term-line"><span class="term-prompt">&gt;</span> <span class="term-cmd">initializing.profile</span></div>
+                            <div class="term-line"><span class="term-prompt">&gt;</span> <span class="term-cmd">loading.skills</span> <span class="term-ok">[OK]</span></div>
+                            <div class="term-line"><span class="term-prompt">&gt;</span> <span class="term-cmd">loading.projects</span> <span class="term-ok">[OK]</span></div>
+                            <div class="term-line"><span class="term-prompt">&gt;</span> <span class="term-cmd">engineer.ready</span></div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <span class="stat-num counter" data-target="3">0</span><span class="stat-plus">+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num counter" data-target="10">0</span><span class="stat-plus">K+</span>
+                            <span class="stat-label">BMS Points Monitored</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num counter" data-target="99">0</span><span class="stat-plus">%</span>
+                            <span class="stat-label">System Availability</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num counter" data-target="5">0</span><span class="stat-plus">+</span>
+                            <span class="stat-label">Technicians Managed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EDUCATION SECTION ========== -->
+    <section id="education" class="section education">
+        <div class="section-bg-icons">
+            <div class="bg-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="bg-icon"><i class="fas fa-book"></i></div>
+            <div class="bg-icon"><i class="fas fa-certificate"></i></div>
+            <div class="bg-icon"><i class="fas fa-award"></i></div>
+            <div class="bg-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="bg-icon"><i class="fas fa-scroll"></i></div>
+            <div class="bg-icon"><i class="fas fa-temperature-low"></i></div>
+            <div class="bg-icon"><i class="fas fa-thermometer-half"></i></div>
+            <div class="bg-icon"><i class="fas fa-microchip"></i></div>
+        </div>
+        <div class="container">
+            <p class="section-tag center">My Background</p>
+            <h2 class="section-title center">Education</h2>
+            <div class="education-grid">
+                <div class="education-card tilt-3d card-glow anim-scroll fade-up" style="--d:0s">
+                    <div class="tilt-3d-inner">
+                        <div class="edu-header">
+                            <h3>Bachelor of Technology (B.Tech) – Mechanical Engineering</h3>
+                            <span class="edu-years">Dec 2025 - Present</span>
+                        </div>
+                        <p class="edu-institution">Lincoln University College</p>
+                        <p class="edu-desc">Pursuing B.Tech in Mechanical Engineering to deepen system design and analytical capabilities.</p>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="education-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.1s">
+                    <div class="tilt-3d-inner">
+                        <div class="edu-header">
+                            <h3>HND – Building Services Engineering Technology</h3>
+                            <span class="edu-years">Mar 2019 - Dec 2023</span>
+                        </div>
+                        <p class="edu-institution">University College of Jaffna</p>
+                        <p class="edu-desc">Higher National Diploma focused on building services, MEP and HVAC engineering.</p>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="education-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.2s">
+                    <div class="tilt-3d-inner">
+                        <div class="edu-header">
+                            <h3>Certificate – MEP Quantity Surveying</h3>
+                            <span class="edu-years">Jun 2024 - Sep 2024</span>
+                        </div>
+                        <p class="edu-institution">Eclipse Education</p>
+                        <p class="edu-desc">Certified in MEP quantity surveying, cost estimation and BOQ preparation.</p>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="education-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.3s">
+                    <div class="tilt-3d-inner">
+                        <div class="edu-header">
+                            <h3>Skills Upgrade – MEP Engineering</h3>
+                            <span class="edu-years">Aug 2025</span>
+                        </div>
+                        <p class="edu-institution">Eclipse Education</p>
+                        <p class="edu-desc">Advanced skills upgrade in modern MEP engineering practices and technologies.</p>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== LICENSES & CERTIFICATIONS SECTION ========== -->
+    <section id="certifications" class="section certifications">
+        <div class="section-bg-icons">
+            <div class="bg-icon"><i class="fas fa-certificate"></i></div>
+            <div class="bg-icon"><i class="fas fa-award"></i></div>
+            <div class="bg-icon"><i class="fas fa-ribbon"></i></div>
+            <div class="bg-icon"><i class="fas fa-id-badge"></i></div>
+            <div class="bg-icon"><i class="fas fa-medal"></i></div>
+            <div class="bg-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="bg-icon"><i class="fas fa-leaf"></i></div>
+            <div class="bg-icon"><i class="fas fa-plug"></i></div>
+            <div class="bg-icon"><i class="fas fa-microchip"></i></div>
+        </div>
+        <div class="container">
+            <p class="section-tag center">Credentials</p>
+            <h2 class="section-title center">Licenses & Certifications</h2>
+            <div class="education-grid">
+                <div class="education-card tilt-3d card-glow anim-scroll fade-up" style="--d:0s">
+                    <div class="tilt-3d-inner">
+                        <div class="edu-header">
+                            <h3>BACnet Basics</h3>
+                            <span class="edu-years">2024</span>
+                        </div>
+                        <p class="edu-institution">BACnet International</p>
+                        <p class="edu-desc">Foundation certification in the BACnet building automation protocol.</p>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="education-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.1s">
+                    <div class="tilt-3d-inner">
+                        <div class="edu-header">
+                            <h3>BACnet Cybersecurity</h3>
+                            <span class="edu-years">2024</span>
+                        </div>
+                        <p class="edu-institution">BACnet International</p>
+                        <p class="edu-desc">Security best practices for BACnet building automation networks.</p>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="education-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.2s">
+                    <div class="tilt-3d-inner">
+                        <div class="edu-header">
+                            <h3>ETS6 eCampus – KNX</h3>
+                            <span class="edu-years">2025</span>
+                        </div>
+                        <p class="edu-institution">KNX Association</p>
+                        <p class="edu-desc">Certified in KNX building automation design and configuration via ETS6.</p>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="education-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.3s">
+                    <div class="tilt-3d-inner">
+                        <div class="edu-header">
+                            <h3>MEP Quantity Surveying</h3>
+                            <span class="edu-years">2024</span>
+                        </div>
+                        <p class="edu-institution">Eclipse Education</p>
+                        <p class="edu-desc">MEP cost estimation and quantity surveying certification.</p>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="education-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.4s">
+                    <div class="tilt-3d-inner">
+                        <div class="edu-header">
+                            <h3>Safety &amp; Health for Engineers</h3>
+                            <span class="edu-years">2024</span>
+                        </div>
+                        <p class="edu-institution">Professional Training</p>
+                        <p class="edu-desc">Occupational safety and health principles for engineering practice.</p>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="education-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.5s">
+                    <div class="tilt-3d-inner">
+                        <div class="edu-header">
+                            <h3>Project Management Webinar</h3>
+                            <span class="edu-years">2024</span>
+                        </div>
+                        <p class="edu-institution">Professional Training</p>
+                        <p class="edu-desc">Project management fundamentals for engineering projects.</p>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EXPERIENCE SECTION ========== -->
+    <section id="experience" class="section experience">
+        <div class="section-bg-icons">
+            <div class="bg-icon"><i class="fas fa-building"></i></div>
+            <div class="bg-icon"><i class="fas fa-hard-hat"></i></div>
+            <div class="bg-icon"><i class="fas fa-wrench"></i></div>
+            <div class="bg-icon"><i class="fas fa-cogs"></i></div>
+            <div class="bg-icon"><i class="fas fa-clipboard-list"></i></div>
+            <div class="bg-icon"><i class="fas fa-users-cog"></i></div>
+            <div class="bg-icon"><i class="fas fa-fan"></i></div>
+            <div class="bg-icon"><i class="fas fa-snowflake"></i></div>
+            <div class="bg-icon"><i class="fas fa-plug"></i></div>
+        </div>
+        <div class="container">
+            <p class="section-tag center">My Journey</p>
+            <h2 class="section-title center">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item anim-scroll fade-left" style="--d:0s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jun 2024 - Present</span>
+                        <h3>IBMS Lead – BMS (Operation &amp; Technical)</h3>
+                        <h4>Dr. Sulaiman Al Habib Medical Group, Riyadh, Saudi Arabia</h4>
+                        <p>Lead facility management operations for a major hospital, overseeing all hard services (HVAC, MEP, fire systems) and coordinating soft services to ensure seamless 24/7 facility performance. Manage a team of 5 technicians in preventive, corrective, and emergency maintenance across all building systems, maintaining 99.5%+ system availability for mission-critical hospital operations. Operate and manage a BMS platform monitoring 10,000+ data points across HVAC, electrical, plumbing, fire alarm, CCTV, and access control systems. Investigate faults, manage alarm response, and coordinate specialist vendors to achieve an average fault resolution time of 2 hours. Develop preventive maintenance plans ensuring compliance with schedules, SLAs, and regulatory requirements.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">IBMS / BMS</span>
+                            <span class="tag">HVAC Systems</span>
+                            <span class="tag">BACnet · Modbus · KNX</span>
+                            <span class="tag">Team Leadership</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item anim-scroll fade-right" style="--d:0.15s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sep 2023 - Nov 2023</span>
+                        <h3>Assistant Electrical Engineer</h3>
+                        <h4>New Solar, Colombo, Sri Lanka</h4>
+                        <p>Supported design, installation, and commissioning of solar PV systems for residential and commercial buildings. Conducted energy assessments, system sizing, BOQ preparation, and technical reporting for facility energy projects.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">Solar PV</span>
+                            <span class="tag">Energy Assessment</span>
+                            <span class="tag">BOQ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item anim-scroll fade-left" style="--d:0.3s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Feb 2023 - Jul 2023</span>
+                        <h3>MEP Engineering Intern</h3>
+                        <h4>Department of Buildings, Batticaloa, Sri Lanka</h4>
+                        <p>Assisted in the supervision of Mechanical, Electrical, and Plumbing (MEP) systems for public buildings. Participated in Split AC system design and equipment selection, supported electrical works (lighting, panel board wiring, grounding), estimated plumbing quantities, and coordinated installation of CCTV, elevators, and fire safety systems. Prepared AutoCAD drawings, as-built plans, and system schematics for documentation and approval.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">MEP</span>
+                            <span class="tag">AutoCAD</span>
+                            <span class="tag">Site Supervision</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item anim-scroll fade-right" style="--d:0.45s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Mar 2021 - Oct 2021</span>
+                        <h3>Site Supervisor – Infrastructure &amp; Pipeline</h3>
+                        <h4>BPPE, Jaffna, Sri Lanka</h4>
+                        <p>Supervised daily site operations for civil and mechanical pipeline installation projects and managed the field crew. Prepared daily work reports and inspection records, and coordinated with project engineers and local authorities.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">Site Supervision</span>
+                            <span class="tag">HSE</span>
+                            <span class="tag">Pipeline</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TECHNICAL SKILLS SECTION ========== -->
+    <section id="skills" class="section skills">
+        <div class="section-bg-icons">
+            <div class="bg-icon"><i class="fas fa-microchip"></i></div>
+            <div class="bg-icon"><i class="fas fa-solar-panel"></i></div>
+            <div class="bg-icon"><i class="fas fa-plug"></i></div>
+            <div class="bg-icon"><i class="fas fa-wifi"></i></div>
+            <div class="bg-icon"><i class="fas fa-server"></i></div>
+            <div class="bg-icon"><i class="fas fa-network-wired"></i></div>
+            <div class="bg-icon"><i class="fas fa-wind"></i></div>
+            <div class="bg-icon"><i class="fas fa-temperature-high"></i></div>
+            <div class="bg-icon"><i class="fas fa-fan"></i></div>
+            <div class="bg-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="bg-icon"><i class="fas fa-water"></i></div>
+            <div class="bg-icon"><i class="fas fa-bolt"></i></div>
+        </div>
+        <div class="container">
+            <p class="section-tag center">My Expertise</p>
+            <h2 class="section-title center">Technical Skills</h2>
+            <div class="skills-categories bento-grid">
+                <div class="skill-category bento-wide tilt-3d card-glow anim-scroll fade-left">
+                    <h3><i class="fas fa-brain"></i> Building Management Systems (IBMS/BMS)</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">IBMS Operations</span>
+                        <span class="skill-tag">BMS Operations</span>
+                        <span class="skill-tag">SCADA</span>
+                        <span class="skill-tag">Alarm Management</span>
+                        <span class="skill-tag">BACnet IP</span>
+                        <span class="skill-tag">BACnet MSTP</span>
+                        <span class="skill-tag">Modbus RTU</span>
+                        <span class="skill-tag">Modbus TCP</span>
+                        <span class="skill-tag">KNX</span>
+                        <span class="skill-tag">Building Automation</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category bento-wide tilt-3d card-glow anim-scroll fade-right">
+                    <h3><i class="fas fa-temperature-low"></i> HVAC &amp; Mechanical Systems</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Chillers</span>
+                        <span class="skill-tag">Cooling Towers</span>
+                        <span class="skill-tag">AHUs</span>
+                        <span class="skill-tag">FCUs</span>
+                        <span class="skill-tag">VFDs</span>
+                        <span class="skill-tag">VAV Systems</span>
+                        <span class="skill-tag">Pumps</span>
+                        <span class="skill-tag">Control Valves</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category bento-tall tilt-3d card-glow anim-scroll fade-left">
+                    <h3><i class="fas fa-cogs"></i> Facility Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CMMS</span>
+                        <span class="skill-tag">Maintenance Planning</span>
+                        <span class="skill-tag">Preventive Maintenance</span>
+                        <span class="skill-tag">SLA Management</span>
+                        <span class="skill-tag">Asset Management</span>
+                        <span class="skill-tag">Vendor Management</span>
+                        <span class="skill-tag">Contract Coordination</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category bento-tall tilt-3d card-glow anim-scroll fade-right">
+                    <h3><i class="fas fa-bolt"></i> Electrical &amp; Safety Systems</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">LV Distribution</span>
+                        <span class="skill-tag">UPS Systems</span>
+                        <span class="skill-tag">Generator Systems</span>
+                        <span class="skill-tag">Lighting Control</span>
+                        <span class="skill-tag">Fire Alarm Systems</span>
+                        <span class="skill-tag">CCTV</span>
+                        <span class="skill-tag">Access Control</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category bento-tall tilt-3d card-glow anim-scroll fade-left">
+                    <h3><i class="fas fa-fire-extinguisher"></i> Fire &amp; Life Safety</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Fire Alarm Systems</span>
+                        <span class="skill-tag">Life Safety</span>
+                        <span class="skill-tag">Code Compliance</span>
+                        <span class="skill-tag">Inspection Reports</span>
+                        <span class="skill-tag">HSE Compliance</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category bento-tall tilt-3d card-glow anim-scroll fade-right">
+                    <h3><i class="fas fa-bottle-water"></i> Plumbing Systems</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Piping Systems</span>
+                        <span class="skill-tag">Pump Systems</span>
+                        <span class="skill-tag">Water Distribution</span>
+                        <span class="skill-tag">Drainage Design</span>
+                        <span class="skill-tag">Water Treatment</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category bento-wide tilt-3d card-glow anim-scroll fade-left">
+                    <h3><i class="fas fa-charging-station"></i> Building Automation Protocols</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">BACnet IP/MSTP</span>
+                        <span class="skill-tag">Modbus RTU/TCP</span>
+                        <span class="skill-tag">KNX</span>
+                        <span class="skill-tag">OPC</span>
+                        <span class="skill-tag">MQTT</span>
+                        <span class="skill-tag">SCADA</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category tilt-3d card-glow anim-scroll fade-right">
+                    <h3><i class="fas fa-leaf"></i> Energy &amp; Sustainability</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Energy Management</span>
+                        <span class="skill-tag">Energy Monitoring</span>
+                        <span class="skill-tag">Energy Auditing</span>
+                        <span class="skill-tag">IoT-BMS Integration</span>
+                        <span class="skill-tag">Predictive Maintenance</span>
+                        <span class="skill-tag">Smart Building Analytics</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category tilt-3d card-glow anim-scroll fade-left">
+                    <h3><i class="fas fa-mobile-alt"></i> Smart Building Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Smart Building Analytics</span>
+                        <span class="skill-tag">IoT Integration</span>
+                        <span class="skill-tag">AI for Building Automation</span>
+                        <span class="skill-tag">Digital Twin Concepts</span>
+                        <span class="skill-tag">Energy Monitoring</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category tilt-3d card-glow anim-scroll fade-right">
+                    <h3><i class="fas fa-project-diagram"></i> Engineering &amp; Design</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">MEP Drawings</span>
+                        <span class="skill-tag">BOQ Preparation</span>
+                        <span class="skill-tag">Technical Documentation</span>
+                        <span class="skill-tag">As-Built Plans</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category tilt-3d card-glow anim-scroll fade-left">
+                    <h3><i class="fas fa-tools"></i> Maintenance &amp; Compliance</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Fault Diagnosis</span>
+                        <span class="skill-tag">Root Cause Analysis</span>
+                        <span class="skill-tag">Preventive Maintenance</span>
+                        <span class="skill-tag">Checklists &amp; PPM</span>
+                        <span class="skill-tag">HSE Compliance</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="skill-category tilt-3d card-glow anim-scroll fade-right">
+                    <h3><i class="fas fa-user-tie"></i> Team Leadership &amp; Training</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Team Supervision</span>
+                        <span class="skill-tag">Technician Training</span>
+                        <span class="skill-tag">Vendor Coordination</span>
+                        <span class="skill-tag">Performance Reviews</span>
+                        <span class="skill-tag">SLA Compliance</span>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PORTFOLIO SECTION ========== -->
+    <section id="portfolio" class="section portfolio">
+        <div class="section-bg-icons">
+            <div class="bg-icon"><i class="fas fa-building"></i></div>
+            <div class="bg-icon"><i class="fas fa-hospital"></i></div>
+            <div class="bg-icon"><i class="fas fa-industry"></i></div>
+            <div class="bg-icon"><i class="fas fa-hotel"></i></div>
+            <div class="bg-icon"><i class="fas fa-warehouse"></i></div>
+            <div class="bg-icon"><i class="fas fa-city"></i></div>
+            <div class="bg-icon"><i class="fas fa-drafting-compass"></i></div>
+            <div class="bg-icon"><i class="fas fa-cogs"></i></div>
+            <div class="bg-icon"><i class="fas fa-fan"></i></div>
+        </div>
+        <div class="container">
+            <p class="section-tag center">My Work</p>
+            <h2 class="section-title center">Featured Projects</h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="bms">BMS</button>
+                <button class="filter-btn" data-filter="mep">MEP</button>
+                <button class="filter-btn" data-filter="bas">BAS</button>
+                <button class="filter-btn" data-filter="hvac">HVAC</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card tilt-3d card-glow anim-scroll scale-in" data-category="bms" style="--d:0s">
+                    <div class="tilt-3d-inner">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop&q=80" alt="Healthcare IBMS Operations">
+                            <div class="portfolio-overlay">
+                                <button class="portfolio-link" onclick="openModal('project1')"><i class="fas fa-external-link-alt"></i></button>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-tag">BMS</span>
+                            <h3>Healthcare IBMS Operations</h3>
+                            <p>Hospital-wide IBMS/BMS operations for Dr. Sulaiman Al Habib Medical Group.</p>
+                        </div>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="portfolio-card tilt-3d card-glow anim-scroll scale-in" data-category="mep" style="--d:0.15s">
+                    <div class="tilt-3d-inner">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop&q=80" alt="Government Building MEP Projects">
+                            <div class="portfolio-overlay">
+                                <button class="portfolio-link" onclick="openModal('project2')"><i class="fas fa-external-link-alt"></i></button>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-tag">MEP</span>
+                            <h3>Government Building MEP Projects</h3>
+                            <p>MEP design support and supervision for public buildings in Sri Lanka.</p>
+                        </div>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="portfolio-card tilt-3d card-glow anim-scroll scale-in" data-category="bas" style="--d:0.3s">
+                    <div class="tilt-3d-inner">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&h=400&fit=crop&q=80" alt="HVAC Energy Optimization Research">
+                            <div class="portfolio-overlay">
+                                <button class="portfolio-link" onclick="openModal('project3')"><i class="fas fa-external-link-alt"></i></button>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-tag">BAS</span>
+                            <h3>HVAC Energy Optimization Research</h3>
+                            <p>Smart control strategies to optimize HVAC energy consumption.</p>
+                        </div>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+                <div class="portfolio-card tilt-3d card-glow anim-scroll scale-in" data-category="hvac" style="--d:0.45s">
+                    <div class="tilt-3d-inner">
+                        <div class="portfolio-img">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop&q=80" alt="Hospital HVAC Systems">
+                            <div class="portfolio-overlay">
+                                <button class="portfolio-link" onclick="openModal('project4')"><i class="fas fa-external-link-alt"></i></button>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-tag">HVAC</span>
+                            <h3>Hospital HVAC Systems</h3>
+                            <p>24/7 operation of chillers, AHUs, FCUs, cooling towers and VFDs.</p>
+                        </div>
+                    </div>
+                    <div class="tilt-3d-glow"></div>
+                </div>
+            </div>
+
+            <!-- Google Drive Work Collection -->
+            <div class="drive-section anim-scroll fade-up" style="--d:0.2s">
+                <div class="drive-header">
+                    <h3><i class="fab fa-google-drive"></i> My Work Collection</h3>
+                    <p>Browse through my complete project portfolio on Google Drive</p>
+                    <a href="https://drive.google.com/drive/folders/1Ok4X0dbpn2TLIjkFEToT33ZM3UPvntur?usp=sharing" target="_blank" class="btn btn-primary btn-3d drive-external-link">
+                        <i class="fas fa-external-link-alt"></i> Open in Google Drive
+                    </a>
+                </div>
+                <div class="drive-embed-wrap">
+                    <div class="drive-lock" id="driveLock">
+                        <i class="fas fa-lock"></i>
+                        <h4>Collection Locked</h4>
+                        <p>Fill the quick form to unlock my complete project portfolio &amp; resume.</p>
+                        <button class="btn btn-primary btn-3d" onclick="requestAccess('drive'); return false;"><i class="fas fa-unlock-alt"></i> Unlock Collection</button>
+                    </div>
+                    <div class="drive-embed-container" id="driveEmbed" style="display:none;">
+                        <iframe 
+                            src="https://drive.google.com/embeddedfolderview?id=1Ok4X0dbpn2TLIjkFEToT33ZM3UPvntur#grid" 
+                            frameborder="0" 
+                            scrolling="no" 
+                            width="100%" 
+                            height="500"
+                            class="drive-iframe"
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CASE STUDIES SECTION ========== -->
+    <section id="case-studies" class="section case-studies">
+        <div class="section-bg-icons">
+            <div class="bg-icon"><i class="fas fa-search"></i></div>
+            <div class="bg-icon"><i class="fas fa-wrench"></i></div>
+            <div class="bg-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="bg-icon"><i class="fas fa-flask"></i></div>
+            <div class="bg-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+            <div class="bg-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div class="bg-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="bg-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="bg-icon"><i class="fas fa-microchip"></i></div>
+        </div>
+        <div class="container">
+            <p class="section-tag center">Field Experience</p>
+            <h2 class="section-title center">Case Studies — Challenges &amp; Solutions</h2>
+
+            <div class="case-slider-wrap anim-scroll fade-up">
+                <button class="case-arrow case-arrow-left" id="caseScrollLeft" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+
+                <div class="case-scroll" id="caseScroll">
+
+                    <!-- Case Study 1 -->
+                    <div class="case-card tilt-3d card-glow" data-card-id="cs-1">
+                        <div class="tilt-3d-inner">
+                            <div class="case-post-header">
+                                <div class="case-avatar">SK</div>
+                                <div class="case-author">
+                                    <span class="case-author-name">Eng. Suresh Kumar</span>
+                                    <span class="case-post-date">Aug 2026 &middot; 5 min read</span>
+                                </div>
+                                <span class="case-tag">HVAC</span>
+                            </div>
+                            <div class="case-cover">
+                                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=700&h=380&fit=crop&q=80" alt="Case study cover" draggable="false">
+                                <span class="case-num">01</span>
+                            </div>
+                            <div class="case-body">
+                                <h3>[Case Study Title — e.g. Chilled Water Pressure Instability]</h3>
+                                <div class="case-block challenge">
+                                    <h4><i class="fas fa-exclamation-triangle"></i> The Challenge</h4>
+                                    <p>[Describe the issue you faced — what went wrong, the symptoms you observed, and its impact on the building/facility.]</p>
+                                </div>
+                                <div class="case-block solution">
+                                    <h4><i class="fas fa-lightbulb"></i> The Solution</h4>
+                                    <p>[Describe how you diagnosed the root cause and the steps you took to resolve it.]</p>
+                                </div>
+                                <div class="case-block">
+                                    <h4><i class="fas fa-cogs"></i> Techniques Used</h4>
+                                    <div class="case-tags">
+                                        <span class="skill-tag">Technique 1</span>
+                                        <span class="skill-tag">Technique 2</span>
+                                        <span class="skill-tag">Technique 3</span>
+                                    </div>
+                                </div>
+                                <div class="case-outcome">
+                                    <i class="fas fa-chart-line"></i> [Outcome — measurable result, e.g. fault resolved, uptime restored]
+                                </div>
+                            </div>
+                            <div class="case-post-footer">
+                                <button type="button" class="case-action case-like" data-card-id="cs-1" aria-label="Like this post">
+                                    <i class="fas fa-heart"></i> <span class="case-like-count">0</span>
+                                </button>
+                                <button type="button" class="case-action case-comment-toggle" data-card-id="cs-1" aria-label="View comments">
+                                    <i class="fas fa-comment"></i> <span class="case-comment-count">0</span>
+                                </button>
+                                <button type="button" class="case-action case-share" aria-label="Share this post">
+                                    <i class="fas fa-share-alt"></i> <span>Share</span>
+                                </button>
+                                <a href="#contact" class="case-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <div class="case-comments" data-comments-for="cs-1" hidden>
+                                <div class="case-comments-list"></div>
+                                <div class="case-comment-form">
+                                    <input type="text" class="case-comment-name" placeholder="Your name" maxlength="30" autocomplete="name" aria-label="Your name">
+                                    <div class="case-comment-input-row">
+                                        <input type="text" class="case-comment-text" placeholder="Write a comment..." maxlength="300" aria-label="Comment text">
+                                        <button type="button" class="case-comment-post" data-card-id="cs-1" aria-label="Post comment"><i class="fas fa-paper-plane"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tilt-3d-glow"></div>
+                    </div>
+
+                    <!-- Case Study 2 -->
+                    <div class="case-card tilt-3d card-glow" data-card-id="cs-2">
+                        <div class="tilt-3d-inner">
+                            <div class="case-post-header">
+                                <div class="case-avatar">SK</div>
+                                <div class="case-author">
+                                    <span class="case-author-name">Eng. Suresh Kumar</span>
+                                    <span class="case-post-date">Jul 2026 &middot; 6 min read</span>
+                                </div>
+                                <span class="case-tag">BMS / IBMS</span>
+                            </div>
+                            <div class="case-cover">
+                                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=700&h=380&fit=crop&q=80" alt="Case study cover" draggable="false">
+                                <span class="case-num">02</span>
+                            </div>
+                            <div class="case-body">
+                                <h3>[Case Study Title — e.g. BMS Alarm Flooding &amp; Fault Response]</h3>
+                                <div class="case-block challenge">
+                                    <h4><i class="fas fa-exclamation-triangle"></i> The Challenge</h4>
+                                    <p>[Describe the issue you faced — what went wrong, the symptoms you observed, and its impact on the building/facility.]</p>
+                                </div>
+                                <div class="case-block solution">
+                                    <h4><i class="fas fa-lightbulb"></i> The Solution</h4>
+                                    <p>[Describe how you diagnosed the root cause and the steps you took to resolve it.]</p>
+                                </div>
+                                <div class="case-block">
+                                    <h4><i class="fas fa-cogs"></i> Techniques Used</h4>
+                                    <div class="case-tags">
+                                        <span class="skill-tag">Technique 1</span>
+                                        <span class="skill-tag">Technique 2</span>
+                                        <span class="skill-tag">Technique 3</span>
+                                    </div>
+                                </div>
+                                <div class="case-outcome">
+                                    <i class="fas fa-chart-line"></i> [Outcome — measurable result, e.g. alarm response time reduced]
+                                </div>
+                            </div>
+                            <div class="case-post-footer">
+                                <button type="button" class="case-action case-like" data-card-id="cs-2" aria-label="Like this post">
+                                    <i class="fas fa-heart"></i> <span class="case-like-count">0</span>
+                                </button>
+                                <button type="button" class="case-action case-comment-toggle" data-card-id="cs-2" aria-label="View comments">
+                                    <i class="fas fa-comment"></i> <span class="case-comment-count">0</span>
+                                </button>
+                                <button type="button" class="case-action case-share" aria-label="Share this post">
+                                    <i class="fas fa-share-alt"></i> <span>Share</span>
+                                </button>
+                                <a href="#contact" class="case-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <div class="case-comments" data-comments-for="cs-2" hidden>
+                                <div class="case-comments-list"></div>
+                                <div class="case-comment-form">
+                                    <input type="text" class="case-comment-name" placeholder="Your name" maxlength="30" autocomplete="name" aria-label="Your name">
+                                    <div class="case-comment-input-row">
+                                        <input type="text" class="case-comment-text" placeholder="Write a comment..." maxlength="300" aria-label="Comment text">
+                                        <button type="button" class="case-comment-post" data-card-id="cs-2" aria-label="Post comment"><i class="fas fa-paper-plane"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tilt-3d-glow"></div>
+                    </div>
+
+                    <!-- Case Study 3 -->
+                    <div class="case-card tilt-3d card-glow" data-card-id="cs-3">
+                        <div class="tilt-3d-inner">
+                            <div class="case-post-header">
+                                <div class="case-avatar">SK</div>
+                                <div class="case-author">
+                                    <span class="case-author-name">Eng. Suresh Kumar</span>
+                                    <span class="case-post-date">Jun 2026 &middot; 4 min read</span>
+                                </div>
+                                <span class="case-tag">Energy</span>
+                            </div>
+                            <div class="case-cover">
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&h=380&fit=crop&q=80" alt="Case study cover" draggable="false">
+                                <span class="case-num">03</span>
+                            </div>
+                            <div class="case-body">
+                                <h3>[Case Study Title — e.g. Energy Consumption Spike]</h3>
+                                <div class="case-block challenge">
+                                    <h4><i class="fas fa-exclamation-triangle"></i> The Challenge</h4>
+                                    <p>[Describe the issue you faced — what went wrong, the symptoms you observed, and its impact on the building/facility.]</p>
+                                </div>
+                                <div class="case-block solution">
+                                    <h4><i class="fas fa-lightbulb"></i> The Solution</h4>
+                                    <p>[Describe how you diagnosed the root cause and the steps you took to resolve it.]</p>
+                                </div>
+                                <div class="case-block">
+                                    <h4><i class="fas fa-cogs"></i> Techniques Used</h4>
+                                    <div class="case-tags">
+                                        <span class="skill-tag">Technique 1</span>
+                                        <span class="skill-tag">Technique 2</span>
+                                        <span class="skill-tag">Technique 3</span>
+                                    </div>
+                                </div>
+                                <div class="case-outcome">
+                                    <i class="fas fa-chart-line"></i> [Outcome — measurable result, e.g. energy consumption reduced by X%]
+                                </div>
+                            </div>
+                            <div class="case-post-footer">
+                                <button type="button" class="case-action case-like" data-card-id="cs-3" aria-label="Like this post">
+                                    <i class="fas fa-heart"></i> <span class="case-like-count">0</span>
+                                </button>
+                                <button type="button" class="case-action case-comment-toggle" data-card-id="cs-3" aria-label="View comments">
+                                    <i class="fas fa-comment"></i> <span class="case-comment-count">0</span>
+                                </button>
+                                <button type="button" class="case-action case-share" aria-label="Share this post">
+                                    <i class="fas fa-share-alt"></i> <span>Share</span>
+                                </button>
+                                <a href="#contact" class="case-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <div class="case-comments" data-comments-for="cs-3" hidden>
+                                <div class="case-comments-list"></div>
+                                <div class="case-comment-form">
+                                    <input type="text" class="case-comment-name" placeholder="Your name" maxlength="30" autocomplete="name" aria-label="Your name">
+                                    <div class="case-comment-input-row">
+                                        <input type="text" class="case-comment-text" placeholder="Write a comment..." maxlength="300" aria-label="Comment text">
+                                        <button type="button" class="case-comment-post" data-card-id="cs-3" aria-label="Post comment"><i class="fas fa-paper-plane"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tilt-3d-glow"></div>
+                    </div>
+
+                    <!-- Case Study 4 -->
+                    <div class="case-card tilt-3d card-glow" data-card-id="cs-4">
+                        <div class="tilt-3d-inner">
+                            <div class="case-post-header">
+                                <div class="case-avatar">SK</div>
+                                <div class="case-author">
+                                    <span class="case-author-name">Eng. Suresh Kumar</span>
+                                    <span class="case-post-date">May 2026 &middot; 5 min read</span>
+                                </div>
+                                <span class="case-tag">MEP</span>
+                            </div>
+                            <div class="case-cover">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=700&h=380&fit=crop&q=80" alt="Case study cover" draggable="false">
+                                <span class="case-num">04</span>
+                            </div>
+                            <div class="case-body">
+                                <h3>[Case Study Title — e.g. Pump Failure During Peak Load]</h3>
+                                <div class="case-block challenge">
+                                    <h4><i class="fas fa-exclamation-triangle"></i> The Challenge</h4>
+                                    <p>[Describe the issue you faced — what went wrong, the symptoms you observed, and its impact on the building/facility.]</p>
+                                </div>
+                                <div class="case-block solution">
+                                    <h4><i class="fas fa-lightbulb"></i> The Solution</h4>
+                                    <p>[Describe how you diagnosed the root cause and the steps you took to resolve it.]</p>
+                                </div>
+                                <div class="case-block">
+                                    <h4><i class="fas fa-cogs"></i> Techniques Used</h4>
+                                    <div class="case-tags">
+                                        <span class="skill-tag">Technique 1</span>
+                                        <span class="skill-tag">Technique 2</span>
+                                        <span class="skill-tag">Technique 3</span>
+                                    </div>
+                                </div>
+                                <div class="case-outcome">
+                                    <i class="fas fa-chart-line"></i> [Outcome — measurable result, e.g. standby switched, downtime avoided]
+                                </div>
+                            </div>
+                            <div class="case-post-footer">
+                                <button type="button" class="case-action case-like" data-card-id="cs-4" aria-label="Like this post">
+                                    <i class="fas fa-heart"></i> <span class="case-like-count">0</span>
+                                </button>
+                                <button type="button" class="case-action case-comment-toggle" data-card-id="cs-4" aria-label="View comments">
+                                    <i class="fas fa-comment"></i> <span class="case-comment-count">0</span>
+                                </button>
+                                <button type="button" class="case-action case-share" aria-label="Share this post">
+                                    <i class="fas fa-share-alt"></i> <span>Share</span>
+                                </button>
+                                <a href="#contact" class="case-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <div class="case-comments" data-comments-for="cs-4" hidden>
+                                <div class="case-comments-list"></div>
+                                <div class="case-comment-form">
+                                    <input type="text" class="case-comment-name" placeholder="Your name" maxlength="30" autocomplete="name" aria-label="Your name">
+                                    <div class="case-comment-input-row">
+                                        <input type="text" class="case-comment-text" placeholder="Write a comment..." maxlength="300" aria-label="Comment text">
+                                        <button type="button" class="case-comment-post" data-card-id="cs-4" aria-label="Post comment"><i class="fas fa-paper-plane"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tilt-3d-glow"></div>
+                    </div>
+
+                </div>
+
+                <button class="case-arrow case-arrow-right" id="caseScrollRight" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <div class="case-dots" id="caseDots"></div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICES + CONTACT SECTION ========== -->
+    <section id="services" class="section services">
+        <div class="section-bg-icons">
+            <div class="bg-icon"><i class="fas fa-drafting-compass"></i></div>
+            <div class="bg-icon"><i class="fas fa-temperature-low"></i></div>
+            <div class="bg-icon"><i class="fas fa-network-wired"></i></div>
+            <div class="bg-icon"><i class="fas fa-search-dollar"></i></div>
+            <div class="bg-icon"><i class="fas fa-tools"></i></div>
+            <div class="bg-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="bg-icon"><i class="fas fa-wind"></i></div>
+            <div class="bg-icon"><i class="fas fa-fan"></i></div>
+            <div class="bg-icon"><i class="fas fa-water"></i></div>
+            <div class="bg-icon"><i class="fas fa-bolt"></i></div>
+            <div class="bg-icon"><i class="fas fa-solar-panel"></i></div>
+            <div class="bg-icon"><i class="fas fa-plug"></i></div>
+        </div>
+        <div class="container">
+            <div class="sc-subsection">
+                <p class="section-tag center">What I Do</p>
+                <h2 class="section-title center">My Services</h2>
+                <div class="services-grid">
+                    <div class="service-card tilt-3d card-glow anim-scroll fade-up" style="--d:0s">
+                        <div class="tilt-3d-inner">
+                            <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
+                            <h3>Facility Management</h3>
+                            <p>Integrated building management and 24/7 facility services for large-scale healthcare and commercial environments.</p>
+                        </div>
+                        <div class="tilt-3d-glow"></div>
+                    </div>
+                    <div class="service-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.1s">
+                        <div class="tilt-3d-inner">
+                            <div class="service-icon"><i class="fas fa-brain"></i></div>
+                            <h3>BMS / IBMS Operations</h3>
+                            <p>Operation and monitoring of BMS platforms managing 10,000+ data points across HVAC, electrical, fire, CCTV and access control.</p>
+                        </div>
+                        <div class="tilt-3d-glow"></div>
+                    </div>
+                    <div class="service-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.2s">
+                        <div class="tilt-3d-inner">
+                            <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+                            <h3>Smart Building Automation</h3>
+                            <p>BACnet, Modbus, KNX and SCADA integration, IoT-BMS connectivity and predictive maintenance solutions.</p>
+                        </div>
+                        <div class="tilt-3d-glow"></div>
+                    </div>
+                    <div class="service-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.3s">
+                        <div class="tilt-3d-inner">
+                            <div class="service-icon"><i class="fas fa-temperature-low"></i></div>
+                            <h3>HVAC Systems</h3>
+                            <p>Operation and optimization of chillers, AHUs, FCUs, cooling towers, VFDs and VAV systems.</p>
+                        </div>
+                        <div class="tilt-3d-glow"></div>
+                    </div>
+                    <div class="service-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.4s">
+                        <div class="tilt-3d-inner">
+                            <div class="service-icon"><i class="fas fa-search-dollar"></i></div>
+                            <h3>Energy Optimization</h3>
+                            <p>Energy monitoring, auditing and efficiency improvements across building services with KPI tracking.</p>
+                        </div>
+                        <div class="tilt-3d-glow"></div>
+                    </div>
+                    <div class="service-card tilt-3d card-glow anim-scroll fade-up" style="--d:0.5s">
+                        <div class="tilt-3d-inner">
+                            <div class="service-icon"><i class="fas fa-tools"></i></div>
+                            <h3>Preventive Maintenance</h3>
+                            <p>Scheduled preventive, corrective and emergency maintenance across HVAC, MEP and building systems with SLA compliance.</p>
+                        </div>
+                        <div class="tilt-3d-glow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT SUB-SECTION -->
+            <div id="contact" class="sc-subsection">
+                <p class="section-tag center">Get In Touch</p>
+                <h2 class="section-title center">Contact Me</h2>
+                <div class="contact-grid">
+                    <div class="contact-info anim-scroll fade-left">
+                        <a class="contact-card" href="https://mail.google.com/mail/?view=cm&fs=1&to=k.sureshkumar199920@gmail.com&su=Hello%20Suresh%20Kumar" target="_blank" rel="noopener" title="Send an email">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>k.sureshkumar199920@gmail.com</p>
+                            </div>
+                        </a>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+966 57 857 5624</p>
+                            </div>
+                        </div>
+                        <a class="contact-card" href="https://www.google.com/maps/search/?api=1&query=Riyadh%2C+Saudi+Arabia" target="_blank" rel="noopener" title="Open location in Google Maps">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Location</h4>
+                                <p class="live-location"><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</p>
+                            </div>
+                        </a>
+                        <div class="contact-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <form class="contact-form anim-scroll fade-right" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-3d btn-full">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <a href="#home" class="footer-logo">SK<span>.</span></a>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Suresh Kumar K. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========== THANK YOU MODAL ========== -->
+    <div class="modal-overlay" id="thankYouModal">
+        <div class="modal-content thank-you-content">
+            <button class="modal-close" onclick="closeThankYou()">&times;</button>
+            <div class="ty-burst" id="tyBurst"></div>
+            <div class="ty-check-wrap">
+                <svg class="ty-check" viewBox="0 0 52 52">
+                    <circle class="ty-check-circle" cx="26" cy="26" r="24" fill="none"/>
+                    <path class="ty-check-mark" fill="none" d="M14 27l8 8 16-16"/>
+                </svg>
+            </div>
+            <h3 class="ty-title">Thank You For Your Attention</h3>
+            <p class="ty-sub" id="tySub">Your details have been received. I will get back to you as soon as possible.</p>
+            <button class="btn btn-primary btn-3d" onclick="closeThankYou()">Close</button>
+        </div>
+    </div>
+
+    <!-- ========== UNLOCK ACCESS MODAL ========== -->
+    <div class="modal-overlay" id="unlockModal">
+        <div class="modal-content unlock-content">
+            <button class="modal-close" onclick="closeUnlock()">&times;</button>
+            <div class="unlock-head">
+                <div class="unlock-icon"><i class="fas fa-id-card"></i></div>
+                <h3>Unlock My Profile</h3>
+                <p>Share your details to access my resume &amp; project collection.</p>
+            </div>
+            <form id="unlockForm" class="unlock-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="vName" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="vEmail" placeholder="Email Address" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="tel" id="vPhone" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="vCompany" placeholder="Company / Organization">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select id="vPurpose" required>
+                        <option value="" disabled selected>I'm interested in...</option>
+                        <option value="Hiring">Hiring for a project</option>
+                        <option value="Consulting">Consulting / BMS-HVAC services</option>
+                        <option value="Collaboration">Business collaboration</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-3d btn-full"><i class="fas fa-unlock-alt"></i> Unlock Access</button>
+                <p class="unlock-note"><i class="fas fa-shield-alt"></i> Your details are used only to contact you. No spam, ever.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== AI CHAT ASSISTANT ========== -->
+    <div class="ai-chat-widget" id="aiChatWidget">
+        <div class="ai-chat-panel" id="aiChatPanel">
+            <div class="ai-chat-header">
+                <div class="ai-avatar"><i class="fas fa-robot"></i></div>
+                <div>
+                    <h4>SK AI Assistant</h4>
+                    <p><span class="ai-status-dot"></span> Online - Ask me anything</p>
+                </div>
+                <button class="ai-chat-reset" onclick="resetChat()" title="Clear conversation"><i class="fas fa-rotate-left"></i></button>
+                <button class="ai-chat-close" onclick="toggleChat(false)"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="ai-chat-body" id="aiChatBody">
+                <div class="ai-msg ai-bot">Hello! I'm SK AI — the virtual assistant for Eng. Suresh Kumar. Ask me about his experience, skills, projects, services, certifications, or how to download the resume. I can also answer in a conversational way.</div>
+            </div>
+            <div class="ai-chips" id="chatQuickReplies"></div>
+            <div class="ai-chat-input">
+                <input type="text" id="aiChatInput" placeholder="Type your question..." autocomplete="off">
+                <button onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="ai-chat-toggle" onclick="toggleChat()">
+            <i class="fas fa-comment-dots"></i>
+            <span class="ai-toggle-pulse"></span>
+        </button>
+    </div>
+
+    <!-- ========== PROJECT MODAL ========== -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" src="" alt="Project Image" class="modal-image">
+            <h3 id="modalTitle" class="modal-title"></h3>
+            <p id="modalDescription" class="modal-description"></p>
+            <div id="modalTags" class="modal-tags"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK (live likes & comments) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
