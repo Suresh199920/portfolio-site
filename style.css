@@ -2712,35 +2712,51 @@ a.contact-card {
         padding-top: 140px;
     }
 
-    .hero-left {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    /* Flatten hero so every element can be reordered freely on mobile */
+    .hero-left,
+    .hero-right,
+    .side-cards {
+        display: contents;
     }
 
-    .hero-right {
-        align-items: center;
+    /* Mobile order control */
+    .hero-greeting { order: 1; }
+    .hero-name { order: 2; }
+    .hero-image-wrapper { order: 3; }
+    .hero-role { order: 4; }
+    .hero-desc { order: 5; }
+    .side-card:nth-child(1) { order: 6; }
+    .side-card:nth-child(2) { order: 7; }
+    .hero-social { order: 8; }
+    .hero-btns { order: 9; }
+    .hero-scroll { order: 10; }
+
+    .hero-image-wrapper {
+        justify-self: center;
+        margin: 20px 0;
     }
 
-    /* Show profile picture first on mobile, then name/content */
-    .hero-right {
-        order: 1;
+    .side-card {
+        justify-self: center;
+        width: 86%;
+        max-width: 400px;
+        text-align: left;
+        margin-bottom: 12px;
     }
 
-    .hero-left {
-        order: 2;
-    }
-
-    .hero-desc {
-        max-width: 100%;
+    .hero-social {
+        justify-self: center;
+        margin: 20px 0;
     }
 
     .hero-btns {
         justify-content: center;
+        width: 100%;
     }
 
     .hero-scroll {
         justify-content: center;
+        margin-top: 10px;
     }
 
     .about-grid {
