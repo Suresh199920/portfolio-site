@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (action === 'resume') {
             const link = document.createElement('a');
-            link.href = 'FMS Engineer.pdf';
-            link.download = 'FMS Engineer.pdf';
+            link.href = 'MEP Mechanical Engineer.pdf';
+            link.download = 'MEP Mechanical Engineer.pdf';
             link.rel = 'noopener';
             document.body.appendChild(link);
             link.click();
