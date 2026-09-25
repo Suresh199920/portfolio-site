@@ -1566,10 +1566,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const SECTION_MS = 10000;   // hold time per section (normal mode)
-        const FAST_SECTION_MS = 5000; // hold time per section (fast resume mode)
-        const START_DELAY = 10000;  // start 10s after landing
-        const IDLE_LIMIT = 60000;   // resume automatically after 60s of no user scrolling
+        const SECTION_MS = 10000;       // hold per section in normal mode
+        const FAST_SECTION_MS = 5000;   // hold per section in resume (fast) mode
+        const START_DELAY = 10000;      // auto-start after 10s if the user never scrolls
+        const IDLE_RESUME_MS = 5000;    // after the user stops scrolling, resume after 5s
         const sectionIds = [
             'home', 'about', 'education', 'certifications', 'memberships',
             'experience', 'skills', 'portfolio', 'work-locations',
@@ -1583,8 +1583,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let index = 0;
         let running = false;
         let holdMs = SECTION_MS;
-        let lastUserScroll = 0;
-        let wasUserPaused = false;
 
         function getTargets() {
             const list = [];
@@ -1633,55 +1631,62 @@ document.addEventListener('DOMContentLoaded', () => {
             idleTimer = null;
         }
 
-        function stopTour(manual) {
+        function stopTour() {
             running = false;
             clearTimers();
             setCtrlText('fa-play');
-            if (manual) showToast('Auto-scroll tour paused');
         }
 
-        function startTour(fast) {
+        function startTour(fast, fromCurrent) {
             if (running) return;
             running = true;
-            wasUserPaused = false;
             holdMs = fast ? FAST_SECTION_MS : SECTION_MS;
+            if (idleTimer) { clearInterval(idleTimer); idleTimer = null; }
             setCtrlText('fa-pause');
-            showToast(fast ? 'Auto-scroll resumed — faster mode (5s)' : 'Auto-scroll tour started — sit back and enjoy');
-            index = 0;
+            if (fromCurrent) {
+                // Resume from the section nearest the current viewport
+                const targets = getTargets();
+                const viewMid = window.scrollY + window.innerHeight * 0.35;
+                let best = 0, bestDist = Infinity;
+                targets.forEach((el, i) => {
+                    const d = Math.abs(el.getBoundingClientRect().top + window.scrollY - viewMid);
+                    if (d < bestDist) { bestDist = d; best = i; }
+                });
+                index = best;
+            } else {
+                index = 0;
+            }
             step();
             tourTimer = setInterval(step, holdMs);
         }
 
-        // Watch for idle: if the user paused the tour by scrolling and
-        // then does nothing for 60s, resume automatically in fast mode.
+        // After the user stops scrolling for IDLE_RESUME_MS, resume the
+        // auto-scroll automatically in fast (5s/section) mode.
         function armIdleResume() {
             if (idleTimer) clearInterval(idleTimer);
-            lastUserScroll = Date.now();
-            idleTimer = setInterval(() => {
-                const idle = Date.now() - lastUserScroll;
-                if (running) {
-                    if (idleTimer) clearInterval(idleTimer);
-                    idleTimer = null;
-                    return;
-                }
-                if (idle >= IDLE_LIMIT) {
-                    if (idleTimer) clearInterval(idleTimer);
-                    idleTimer = null;
-                    startTour(true);
-                }
-            }, 1000);
+            idleTimer = setTimeout(() => {
+                idleTimer = null;
+                if (!running) startTour(true, true);
+            }, IDLE_RESUME_MS);
         }
 
-        function userTookOver() {
-            lastUserScroll = Date.now();
-            if (running) {
-                stopTour(false);
-                wasUserPaused = true;
-                armIdleResume();
-            } else if (wasUserPaused) {
-                // user interacted again — reset the idle window
-                armIdleResume();
+        // Any user scrolling cancels the 10s logic and arms the 5s watcher.
+        function onUserActivity(e) {
+            if (e && e.target && ctrl.contains(e.target)) return;
+            // 10s logic is cancelled once the user scrolls
+            if (countdownTimer) {
+                clearInterval(countdownTimer);
+                countdownTimer = null;
+                setCtrlText('');
+                ctrl.title = 'Auto-scroll (resumes after 5s idle)';
             }
+            // If the tour is running, stop it and wait for a 5s pause
+            if (running) {
+                running = false;
+                if (tourTimer) { clearInterval(tourTimer); tourTimer = null; }
+                setCtrlText('fa-play');
+            }
+            armIdleResume();
         }
 
         function countdown() {
@@ -1693,7 +1698,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (left <= 0) {
                     clearInterval(countdownTimer);
                     countdownTimer = null;
-                    startTour(false);
+                    startTour(false, false);
                 } else {
                     ctrl.title = 'Auto-scroll starts in ' + left + 's';
                 }
@@ -1703,21 +1708,24 @@ document.addEventListener('DOMContentLoaded', () => {
         // Click toggles pause / resume
         ctrl.addEventListener('click', () => {
             if (running) {
-                stopTour(true);
+                running = false;
+                clearTimers();
+                setCtrlText('fa-play');
             } else {
                 clearTimers();
-                startTour(false);
+                startTour(false, true);
             }
         });
 
-        // User interactions pause the tour and arm the idle-resume watcher
-        window.addEventListener('wheel', userTookOver, { passive: true });
-        window.addEventListener('touchstart', userTookOver, { passive: true });
+        // User interactions: scrolling cancels the 10s timer, stops the
+        // tour, and re-arms the 5s auto-resume watcher.
+        window.addEventListener('wheel', onUserActivity, { passive: true });
+        window.addEventListener('touchstart', onUserActivity, { passive: true });
         window.addEventListener('keydown', (e) => {
-            if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', ' ', 'End', 'Home'].includes(e.key)) userTookOver();
+            if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', ' ', 'End', 'Home'].includes(e.key)) onUserActivity();
         });
 
-        // Auto-start after 10 seconds
+        // Auto-start after 10 seconds (only if the user hasn't scrolled)
         setTimeout(countdown, 500);
     }
 
