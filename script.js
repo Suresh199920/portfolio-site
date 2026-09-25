@@ -533,14 +533,17 @@ document.addEventListener('DOMContentLoaded', () => {
         apiKey: '',
         model: 'gemini-2.0-flash',
         systemPrompt: [
-            "You are SK AI, the friendly virtual assistant for Eng. Suresh Kumar, a Facility Management Engineer (IBMS/BMS) based in Riyadh, Saudi Arabia.",
-            "Key facts: 4+ years of experience; currently IBMS Lead at Dr. Sulaiman Al Habib Medical Group, Sahafah Hospital (Riyadh), managing a team of 5 technicians and 10,000+ BMS monitoring points at 99.5%+ uptime.",
-            "Expertise: IBMS/BMS operations, HVAC & mechanical systems (chillers, AHUs, FCUs, cooling towers, VFDs, VAV), BACnet IP/MSTP, Modbus RTU/TCP, KNX, SCADA, energy management, fire alarm, CCTV, access control.",
-            "Education: B.Tech Mechanical Engineering (Lincoln University College, Dec 2025 - Present); HND Building Services Engineering Technology (University College of Jaffna); MEP Quantity Surveying and MEP Skills Upgrade (Eclipse Education).",
-            "Certifications: BACnet Basics, BACnet Cybersecurity, ETS6 eCampus - KNX, Safety & Health for Engineers, Project Management Webinar. ASHRAE Student/Associate Member and KNX Association Community Member.",
+            "You are SK AI, the friendly virtual assistant for Eng. Suresh Kumar, an MEP/Mechanical Engineer (B.Tech) based in Riyadh, Saudi Arabia.",
+            "Key facts: 4+ years of experience in MEP & building services; currently BMS Operation & Technical Support at Dr. Sulaiman Al Habib Medical Group, Sahafah Hospital (Riyadh), maintaining 99.5%+ system availability in a 24/7 hospital environment.",
+            "Expertise: HVAC & mechanical systems (chillers, AHUs, FCUs, cooling towers, VFDs, VAV), LV electrical, plumbing & fire protection, IBMS/BMS operations, BACnet, Modbus, KNX, SCADA, energy management, fire alarm, CCTV, access control, plus growing data center / critical facilities MEP knowledge (precision cooling CRAC/CRAH, containment, N+1/2N redundancy, DCIM-BMS integration).",
+            "Education: B.Tech (Hons) Mechanical Engineering (Lincoln University College, Dec 2025 - Present); HND Building Services Engineering Technology (University College of Jaffna, Mar 2019 - Jan 2024); MEP Quantity Surveying and MEP Skills Upgrade (Eclipse Education).",
+            "Experience roles: BMS Operation & Technical Support - Dr. Sulaiman Al Habib Medical Group (Jun 2024 - Present); Assistant Electrical Engineer - New Solar, Colombo (Sep-Nov 2023); MEP Engineering Intern - Department of Buildings, Batticaloa (Feb-Aug 2023); Assistant Electrical Engineer - Keells Consultants, Colombo (Mar-Nov 2022); Site Supervisor - BPPE, Jaffna (Mar-Oct 2021).",
+            "Memberships: Engineering Council, Sri Lanka (ECSL) Member (Eng. Tech); ASHRAE Student/Associate Member; KNX Association Community Member; Skill Passport - TVEC, Sri Lanka.",
+            "Certifications: BACnet Basics, BACnet Cybersecurity, ETS6 eCampus - KNX, Safety & Health for Engineers, Project Management, Machine Learning for Engineers, Facility Manager's Guide to BAS.",
+            "Languages: Tamil (Native), English (Professional), Hindi (Conversational), Arabic (Basic), Sinhala (Conversational).",
             "Contact: k.sureshkumar199920@gmail.com, +966 57 857 5624.",
             "Resume: available for download via the Resume button on the site (a short form must be filled first).",
-            "He is seeking Facility Management Engineer roles in Saudi Arabia, the UAE, and the GCC.",
+            "He is seeking MEP/Mechanical Engineer roles in the construction sector across Saudi Arabia, the UAE, and the GCC.",
             "Answer conversationally, be concise and helpful, reply in the same language the user writes in, and never invent facts beyond the above."
         ].join('\n')
     };
@@ -614,15 +617,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----- Offline NLP engine (works without an API key) -----
     const FACTS = {
         name: 'Eng. Suresh Kumar (Sureshkumar K)',
-        title: 'Facility Management Engineer',
+        title: 'MEP/Mechanical Engineer (B.Tech)',
         location: 'Riyadh, Saudi Arabia',
         email: 'k.sureshkumar199920@gmail.com',
         phone: '+966 57 857 5624',
-        role: 'IBMS Lead at Dr. Sulaiman Al Habib Medical Group, Sahafah Hospital',
+        role: 'BMS Operation & Technical Support at Dr. Sulaiman Al Habib Medical Group',
         years: '4+ years',
-        team: '5 technicians',
-        points: '10,000+ BMS monitoring points',
-        uptime: '99.5%+ system availability'
+        team: '99.5%+ system availability',
+        points: '24/7 BMS/MEP operations',
+        uptime: 'across HVAC, electrical, plumbing and fire systems'
     };
 
     function normalizeText(s) {
@@ -656,7 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             name: 'experience', words: ['experience', 'career', 'job', 'work history', 'worked', 'employment', 'background', 'professional history', 'what did he do', 'roles', 'positions'],
-            reply: `He has ${FACTS.years} of progressive experience in facility management, BMS/MEP operations, and HVAC systems. Highlights: ${FACTS.role} (Jun 2024 - Present), Assistant Electrical Engineer at New Solar (Sep-Nov 2023), MEP Engineering Intern at the Department of Buildings, Sri Lanka (Feb-Jul 2023), and Site Supervisor at BPPE (Mar-Oct 2021).`
+            reply: `He has ${FACTS.years} of progressive experience in facility management, MEP and building services. Highlights: ${FACTS.role} (Jun 2024 - Present), Assistant Electrical Engineer at New Solar (Sep-Nov 2023), MEP Engineering Intern at the Department of Buildings, Sri Lanka (Feb-Aug 2023), Assistant Electrical Engineer at Keells Consultants, Colombo (Mar-Nov 2022), and Site Supervisor at BPPE (Mar-Oct 2021).`
         },
         {
             name: 'skills', words: ['skill', 'expertise', 'expert', 'proficient', 'good at', 'knows', 'technologies', 'protocols', 'strengths', 'capabilities', 'competencies'],
@@ -672,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             name: 'education', words: ['education', 'degree', 'study', 'university', 'college', 'qualification', 'academic', 'btech', 'b.tech', 'hnd', 'diploma'],
-            reply: `He is pursuing a B.Tech in Mechanical Engineering at Lincoln University College (Dec 2025 - Present). He holds an HND in Building Services Engineering Technology from University College of Jaffna (Mar 2019 - Dec 2023), plus a Certificate in MEP Quantity Surveying and a Skills Upgrade in MEP Engineering from Eclipse Education.`
+            reply: `He is pursuing a B.Tech (Hons) in Mechanical Engineering at Lincoln University College (Dec 2025 - Present). He holds an HND in Building Services Engineering Technology from University College of Jaffna (Mar 2019 - Jan 2024), plus a Certificate in MEP Quantity Surveying and a Skills Upgrade in MEP Engineering from Eclipse Education.`
         },
         {
             name: 'certifications', words: ['certification', 'certificate', 'license', 'training', 'course', 'bacnet', 'knx', 'ets6', 'hse', 'ashrae', 'membership', 'accredited'],

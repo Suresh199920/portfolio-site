@@ -1501,6 +1501,65 @@ img {
     transform: translateY(-5px);
 }
 
+.memb-lang-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    perspective: 1000px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.memb-lang-grid .education-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.memb-lang-grid .education-card h3 i {
+    color: var(--accent);
+}
+
+.credential-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.credential-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.credential-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.credential-list li::before {
+    content: '\f058';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+.credential-list li .credential-body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text);
+}
+
 .edu-header {
     display: flex;
     justify-content: space-between;
@@ -2948,6 +3007,11 @@ a.contact-card {
 
     .services-grid {
         grid-template-columns: 1fr;
+    }
+
+    .memb-lang-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .skills-categories {
