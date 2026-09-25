@@ -1587,7 +1587,20 @@ document.addEventListener('DOMContentLoaded', () => {
         let wasUserPaused = false;
 
         function getTargets() {
-            const list = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+            const list = [];
+            sectionIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                // Scroll through each work-experience entry individually
+                if (id === 'experience') {
+                    const items = el.querySelectorAll('.timeline-item');
+                    if (items.length) {
+                        list.push(...items);
+                        return;
+                    }
+                }
+                list.push(el);
+            });
             if (contactEl && !list.includes(contactEl)) list.push(contactEl);
             return list;
         }
