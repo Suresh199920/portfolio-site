@@ -1485,6 +1485,42 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', updateScrollButtons);
         updateScrollButtons();
 
+        // --- Autoplay slideshow ----------------
+        const FIRST_ITEM = grid.querySelector('.gallery-item');
+        const AUTO_MS = 3500;
+        let autoTimer = null;
+
+        function cardWidth() {
+            const item = grid.querySelector('.gallery-item');
+            return item ? item.getBoundingClientRect().width + 20 : 340;
+        }
+
+        function nextSlide() {
+            const maxScroll = grid.scrollWidth - grid.clientWidth;
+            const willWrap = grid.scrollLeft + cardWidth() >= maxScroll - 2;
+            grid.scrollBy({ left: willWrap ? -grid.scrollLeft : cardWidth(), behavior: 'smooth' });
+        }
+
+        function startAuto() {
+            if (autoTimer) clearInterval(autoTimer);
+            autoTimer = setInterval(nextSlide, AUTO_MS);
+        }
+
+        function stopAuto() {
+            if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+        }
+
+        const pauseOn = () => stopAuto();
+        const resumeAuto = () => { if (lightbox.classList.contains('show')) return; startAuto(); };
+
+        grid.addEventListener('mouseenter', pauseOn);
+        grid.addEventListener('touchstart', pauseOn, { passive: true });
+        grid.addEventListener('mouseleave', resumeAuto);
+        grid.addEventListener('touchend', resumeAuto, { passive: true });
+        if (scrollLeftBtn) scrollLeftBtn.addEventListener('click', resumeAuto);
+        if (scrollRightBtn) scrollRightBtn.addEventListener('click', resumeAuto);
+        grid.addEventListener('scroll', resumeAuto, { passive: true });
+
         function show(ix) {
             current = (ix + WORK_PHOTOS.length) % WORK_PHOTOS.length;
             const p = WORK_PHOTOS[current];
@@ -1510,6 +1546,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'ArrowLeft') show(current - 1);
             if (e.key === 'ArrowRight') show(current + 1);
         });
+
+        // Autoplay only while the section is on screen
+        const section = document.getElementById('work-locations');
+        if (section && 'IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(en => { if (en.isIntersecting) startAuto(); else stopAuto(); });
+            }, { threshold: 0.25 });
+            io.observe(section);
+        }
     }
 
     // Init all 3D effects
