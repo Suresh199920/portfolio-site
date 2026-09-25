@@ -1463,6 +1463,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 </figcaption>
             </figure>`).join('');
 
+        // --- Horizontal scroll controls ---
+        const scrollLeftBtn = document.getElementById('galleryScrollLeft');
+        const scrollRightBtn = document.getElementById('galleryScrollRight');
+
+        function updateScrollButtons() {
+            if (!scrollLeftBtn || !scrollRightBtn) return;
+            scrollLeftBtn.disabled = grid.scrollLeft <= 4;
+            scrollRightBtn.disabled = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 4;
+        }
+
+        function scrollByCards(dir) {
+            const first = grid.querySelector('.gallery-item');
+            const step = (first ? first.getBoundingClientRect().width + 20 : 320) * dir;
+            grid.scrollBy({ left: step, behavior: 'smooth' });
+        }
+
+        if (scrollLeftBtn) scrollLeftBtn.addEventListener('click', () => scrollByCards(-1));
+        if (scrollRightBtn) scrollRightBtn.addEventListener('click', () => scrollByCards(1));
+        grid.addEventListener('scroll', updateScrollButtons, { passive: true });
+        window.addEventListener('resize', updateScrollButtons);
+        updateScrollButtons();
+
         function show(ix) {
             current = (ix + WORK_PHOTOS.length) % WORK_PHOTOS.length;
             const p = WORK_PHOTOS[current];
