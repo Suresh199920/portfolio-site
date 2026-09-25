@@ -1557,6 +1557,108 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // ========== AUTO-SCROLL PAGE TOUR ==========
+    function initAutoTour() {
+        const ctrl = document.getElementById('tourCtrl');
+        if (!ctrl) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            ctrl.style.display = 'none';
+            return;
+        }
+
+        const SECTION_MS = 10000;   // hold time per section
+        const START_DELAY = 10000;  // start 10s after landing
+        const sectionIds = [
+            'home', 'about', 'education', 'certifications', 'memberships',
+            'experience', 'skills', 'portfolio', 'work-locations',
+            'case-studies', 'services'
+        ];
+        const contactEl = document.getElementById('contact');
+
+        let tourTimer = null;
+        let countdownTimer = null;
+        let index = 0;
+        let running = false;
+
+        function getTargets() {
+            const list = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+            if (contactEl && !list.includes(contactEl)) list.push(contactEl);
+            return list;
+        }
+
+        function scrollIntoViewEl(el) {
+            const y = el.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top: Math.max(y, 0), behavior: 'smooth' });
+        }
+
+        function step() {
+            const targets = getTargets();
+            if (!targets.length) return;
+            if (index >= targets.length) index = 0;
+            scrollIntoViewEl(targets[index]);
+            index++;
+        }
+
+        function setCtrlText(txt, counting) {
+            ctrl.innerHTML = '<i class="fas ' + txt + '"></i>';
+            ctrl.classList.toggle('tour-active', running);
+            ctrl.classList.toggle('tour-counting', !!counting);
+        }
+
+        function stopTour(manual) {
+            running = false;
+            if (tourTimer) clearInterval(tourTimer);
+            if (countdownTimer) clearInterval(countdownTimer);
+            tourTimer = null;
+            countdownTimer = null;
+            setCtrlText('fa-play');
+            if (manual) showToast('Auto-scroll tour paused');
+        }
+
+        function startTour() {
+            if (running) return;
+            running = true;
+            index = 0;
+            setCtrlText('fa-pause');
+            showToast('Auto-scroll tour started — sit back and enjoy');
+            index = 0;
+            step();
+            tourTimer = setInterval(step, SECTION_MS);
+        }
+
+        function countdown() {
+            let left = Math.ceil(START_DELAY / 1000);
+            setCtrlText('fa-hourglass-half', true);
+            ctrl.title = 'Auto-scroll starts in ' + left + 's';
+            countdownTimer = setInterval(() => {
+                left--;
+                if (left <= 0) {
+                    clearInterval(countdownTimer);
+                    countdownTimer = null;
+                    startTour();
+                } else {
+                    ctrl.title = 'Auto-scroll starts in ' + left + 's';
+                }
+            }, 1000);
+        }
+
+        // Click toggles pause / resume
+        ctrl.addEventListener('click', () => {
+            if (running) stopTour(true);
+            else startTour();
+        });
+
+        // Pause if the visitor takes over scrolling
+        window.addEventListener('wheel', () => { if (running) stopTour(); }, { passive: true });
+        window.addEventListener('touchstart', () => { if (running) stopTour(); }, { passive: true });
+        window.addEventListener('keydown', (e) => {
+            if (running && ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', ' ', 'End', 'Home'].includes(e.key)) stopTour();
+        });
+
+        // Auto-start after 10 seconds
+        setTimeout(countdown, 500);
+    }
+
     // Init all 3D effects
     // init3DTilt removed — card tilt disabled on request
     initHero3D();
@@ -1570,6 +1672,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initLiveEngagement();
     initCertificateViewer();
     initWorkGallery();
+    initAutoTour();
 
     // Restore unlock state on load
     if (isUnlocked()) {

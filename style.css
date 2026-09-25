@@ -3735,6 +3735,46 @@ a.contact-card {
     box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
 }
 
+/* ---------- AUTO-SCROLL TOUR CONTROL ---------- */
+.tour-ctrl {
+    position: fixed;
+    bottom: 100px;
+    left: 25px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B5CF6, #2563EB);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: 1.05rem;
+    cursor: pointer;
+    z-index: 9996;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.tour-ctrl:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 28px rgba(139, 92, 246, 0.55);
+}
+
+.tour-ctrl.tour-active {
+    background: linear-gradient(135deg, #F59E0B, #EF4444);
+    animation: tourPulse 1.6s ease-in-out infinite;
+}
+
+.tour-ctrl.tour-counting {
+    background: linear-gradient(135deg, #22C55E, #0EA5E9);
+}
+
+@keyframes tourPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+    50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+}
+
 .site-toast {
     position: fixed;
     bottom: 28px;
