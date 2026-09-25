@@ -1427,6 +1427,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ===== WORK LOCATIONS GALLERY =====
+    // Each entry: src (path), caption, site (location label shown in overlay)
+    const WORK_PHOTOS = [
+        { src: 'images/work-locations/buildingdepartment1.jpg', caption: 'Department of Buildings — MEP Engineering Intern', site: 'Batticaloa, Sri Lanka (2023)' },
+        { src: 'images/work-locations/buildingdepartment2.jpg', caption: 'Department of Buildings — MEP Engineering Intern', site: 'Batticaloa, Sri Lanka (2023)' },
+        { src: 'images/work-locations/Keells1.jpg', caption: 'Keells Consultants — Assistant Electrical Engineer', site: 'Colombo, Sri Lanka (2022)' },
+        { src: 'images/work-locations/Keells2.jpg', caption: 'Keells Consultants — Assistant Electrical Engineer', site: 'Colombo, Sri Lanka (2022)' },
+        { src: 'images/work-locations/Keells3.jpg', caption: 'Keells Consultants — Assistant Electrical Engineer', site: 'Colombo, Sri Lanka (2022)' },
+        { src: 'images/work-locations/Keells4.jpg', caption: 'Keells Consultants — Assistant Electrical Engineer', site: 'Colombo, Sri Lanka (2022)' },
+        { src: 'images/work-locations/solar.jpg', caption: 'New Solar — Solar PV Design & Installation', site: 'Colombo, Sri Lanka (2023)' },
+        { src: 'images/work-locations/Solar1.jpg', caption: 'New Solar — Solar PV Design & Installation', site: 'Colombo, Sri Lanka (2023)' },
+        { src: 'images/work-locations/Solar2.jpg', caption: 'New Solar — Solar PV Design & Installation', site: 'Colombo, Sri Lanka (2023)' },
+        { src: 'images/work-locations/Solar3.jpg', caption: 'New Solar — Solar PV Design & Installation', site: 'Colombo, Sri Lanka (2023)' },
+        { src: 'images/work-locations/Solar4.jpg', caption: 'New Solar — Solar PV Design & Installation', site: 'Colombo, Sri Lanka (2023)' }
+    ];
+
+    function initWorkGallery() {
+        const grid = document.getElementById('workGallery');
+        const lightbox = document.getElementById('galleryLightbox');
+        if (!grid || !lightbox) return;
+        const img = document.getElementById('galleryLightboxImg');
+        const caption = document.getElementById('galleryLightboxCaption');
+        const closeBtn = document.getElementById('galleryClose');
+        const prevBtn = document.getElementById('galleryPrev');
+        const nextBtn = document.getElementById('galleryNext');
+        let current = 0;
+
+        grid.innerHTML = WORK_PHOTOS.map((p, i) => `
+            <figure class="gallery-item" data-index="${i}">
+                <img src="${p.src}" alt="${p.caption}" loading="lazy">
+                <figcaption>
+                    <span class="gallery-site"><i class="fas fa-map-marker-alt"></i> ${p.site}</span>
+                    <span class="gallery-caption">${p.caption}</span>
+                </figcaption>
+            </figure>`).join('');
+
+        function show(ix) {
+            current = (ix + WORK_PHOTOS.length) % WORK_PHOTOS.length;
+            const p = WORK_PHOTOS[current];
+            img.src = p.src;
+            img.alt = p.caption;
+            caption.textContent = p.caption + ' — ' + p.site;
+            lightbox.classList.add('show');
+        }
+
+        grid.addEventListener('click', (e) => {
+            const item = e.target.closest('.gallery-item');
+            if (item) show(parseInt(item.dataset.index, 10));
+        });
+        closeBtn.addEventListener('click', () => lightbox.classList.remove('show'));
+        prevBtn.addEventListener('click', () => show(current - 1));
+        nextBtn.addEventListener('click', () => show(current + 1));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.classList.remove('show');
+        });
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('show')) return;
+            if (e.key === 'Escape') lightbox.classList.remove('show');
+            if (e.key === 'ArrowLeft') show(current - 1);
+            if (e.key === 'ArrowRight') show(current + 1);
+        });
+    }
+
     // Init all 3D effects
     // init3DTilt removed — card tilt disabled on request
     initHero3D();
@@ -1439,6 +1502,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCaseSlider();
     initLiveEngagement();
     initCertificateViewer();
+    initWorkGallery();
 
     // Restore unlock state on load
     if (isUnlocked()) {
