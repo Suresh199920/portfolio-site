@@ -1126,6 +1126,38 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach(card => {
             card.addEventListener('dragstart', (e) => e.preventDefault());
         });
+
+        // -------- Auto-play Case Studies ---------
+        const CASE_AUTO_MS = 5000;
+        let caseAutoTimer = null;
+
+        function caseNext() {
+            const max = scroll.scrollWidth - scroll.clientWidth;
+            const willWrap = scroll.scrollLeft + stepWidth() >= max - 2;
+            scroll.scrollBy({ left: willWrap ? -scroll.scrollLeft : stepWidth(), behavior: 'smooth' });
+        }
+
+        function startCaseAuto() {
+            if (caseAutoTimer) clearInterval(caseAutoTimer);
+            caseAutoTimer = setInterval(caseNext, CASE_AUTO_MS);
+        }
+
+        function stopCaseAuto() {
+            if (caseAutoTimer) { clearInterval(caseAutoTimer); caseAutoTimer = null; }
+        }
+
+        scroll.addEventListener('pointerdown', stopCaseAuto);
+        scroll.addEventListener('mouseenter', stopCaseAuto);
+        leftBtn.addEventListener('click', startCaseAuto);
+        rightBtn.addEventListener('click', startCaseAuto);
+
+        const caseSection = document.getElementById('case-studies');
+        if (caseSection && 'IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(en => { if (en.isIntersecting) startCaseAuto(); else stopCaseAuto(); });
+            }, { threshold: 0.25 });
+            io.observe(caseSection);
+        }
     }
 
     // ========== LIVE LIKES, COMMENTS & SHARE ==========
