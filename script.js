@@ -1631,9 +1631,16 @@ document.addEventListener('DOMContentLoaded', () => {
             idleTimer = null;
         }
 
+        // Immediately cancel any in-flight smooth auto-scroll so it never
+        // fights the user's own scrolling.
+        function cancelSmoothScroll() {
+            try { window.scrollTo({ top: window.scrollY, left: window.scrollX, behavior: 'auto' }); } catch (e) {}
+        }
+
         function stopTour() {
             running = false;
             clearTimers();
+            cancelSmoothScroll();
             setCtrlText('fa-play');
         }
 
@@ -1673,19 +1680,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // Any user scrolling cancels the 10s logic and arms the 5s watcher.
         function onUserActivity(e) {
             if (e && e.target && ctrl.contains(e.target)) return;
+            // Cancel any in-flight smooth auto-scroll right away
+            cancelSmoothScroll();
             // 10s logic is cancelled once the user scrolls
             if (countdownTimer) {
                 clearInterval(countdownTimer);
                 countdownTimer = null;
-                setCtrlText('');
                 ctrl.title = 'Auto-scroll (resumes after 5s idle)';
             }
             // If the tour is running, stop it and wait for a 5s pause
             if (running) {
                 running = false;
                 if (tourTimer) { clearInterval(tourTimer); tourTimer = null; }
-                setCtrlText('fa-play');
             }
+            if (!running) setCtrlText('fa-play');
             armIdleResume();
         }
 
@@ -1710,6 +1718,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (running) {
                 running = false;
                 clearTimers();
+                cancelSmoothScroll();
                 setCtrlText('fa-play');
             } else {
                 clearTimers();
@@ -1718,9 +1727,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // User interactions: scrolling cancels the 10s timer, stops the
-        // tour, and re-arms the 5s auto-resume watcher.
+        // tour, and re-arms the 5s auto-resume watcher. touchmove (not
+        // touchstart) so taps/buttons don't count as scrolling.
         window.addEventListener('wheel', onUserActivity, { passive: true });
-        window.addEventListener('touchstart', onUserActivity, { passive: true });
+        window.addEventListener('touchmove', onUserActivity, { passive: true });
         window.addEventListener('keydown', (e) => {
             if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', ' ', 'End', 'Home'].includes(e.key)) onUserActivity();
         });
