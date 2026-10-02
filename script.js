@@ -1583,6 +1583,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let index = 0;
         let running = false;
         let holdMs = SECTION_MS;
+        let permanentlyStopped = false;
 
         function getTargets() {
             const list = [];
@@ -1645,7 +1646,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function startTour(fast, fromCurrent) {
-            if (running) return;
+            if (running || permanentlyStopped) return;
             running = true;
             holdMs = fast ? FAST_SECTION_MS : SECTION_MS;
             if (idleTimer) { clearInterval(idleTimer); idleTimer = null; }
@@ -1670,11 +1671,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // After the user stops scrolling for IDLE_RESUME_MS, resume the
         // auto-scroll automatically in fast (5s/section) mode.
         function armIdleResume() {
+            if (permanentlyStopped || running) return;
             if (idleTimer) clearInterval(idleTimer);
             idleTimer = setTimeout(() => {
                 idleTimer = null;
-                if (!running) startTour(true, true);
+                if (!running && !permanentlyStopped) startTour(true, true);
             }, IDLE_RESUME_MS);
+        }
+
+        // Fully stop the tour — used when the user actually uses the site
+        // (opens a modal, clicks a link/button, etc.). No idle resume.
+        function stopTourPermanent() {
+            if (permanentlyStopped) return;
+            permanentlyStopped = true;
+            running = false;
+            clearTimers();
+            cancelSmoothScroll();
+            ctrl.style.display = 'none';
         }
 
         // Any user scrolling cancels the 10s logic and arms the 5s watcher.
@@ -1715,6 +1728,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Click toggles pause / resume
         ctrl.addEventListener('click', () => {
+            if (permanentlyStopped) return;
             if (running) {
                 running = false;
                 clearTimers();
@@ -1725,6 +1739,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 startTour(false, true);
             }
         });
+
+        // Any real use of the site (opening a modal, clicking a link or
+        // button) permanently stops the auto-scroll tour.
+        document.addEventListener('click', (e) => {
+            if (e.target && ctrl.contains(e.target)) return;
+            if (countdownTimer || running || idleTimer) stopTourPermanent();
+        }, true);
 
         // User interactions: scrolling cancels the 10s timer, stops the
         // tour, and re-arms the 5s auto-resume watcher. touchmove (not
