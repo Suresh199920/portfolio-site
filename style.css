@@ -946,6 +946,14 @@ img {
     pointer-events: none;
 }
 
+/* Strongly blur the photo itself while locked (more reliable than
+   backdrop-filter alone, which can silently fail in some browsers). */
+.hero-image:has(.profile-lock:not(.unlocked)) img {
+    filter: blur(18px) saturate(0.6);
+    transform: scale(1.06);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
 /* Side Cards */
 .side-cards {
     display: flex;
