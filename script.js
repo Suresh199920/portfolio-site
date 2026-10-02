@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'project1': {
             title: 'Healthcare IBMS Operations',
             description: 'End-to-end operation and maintenance of hospital-wide IBMS at Dr. Sulaiman Al Habib Medical Group, integrating HVAC, lighting control, fire alarm, CCTV, access control, and energy monitoring systems. Manage 10,000+ BMS monitoring points and maintain 99.5%+ system uptime for mission-critical building services supporting active hospital operations.',
-            image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop&q=80',
+            image: 'images/projects/bms-habib.jpg',
             tags: ['IBMS', 'BMS Operations', 'Hospital', 'BACnet', '10,000+ Points']
         },
         'project2': {
@@ -1462,6 +1462,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== WORK LOCATIONS GALLERY =====
     // Each entry: src (path), caption, site (location label shown in overlay)
     const WORK_PHOTOS = [
+        { src: 'images/work-locations/dr-sulaiman1.jpg', caption: 'Dr. Sulaiman Al Habib — BMS Operation & Technical Support', site: 'Riyadh, Saudi Arabia (2024-Present)' },
+        { src: 'images/work-locations/dr-sulaiman2.jpg', caption: 'Dr. Sulaiman Al Habib — BMS Operation & Technical Support', site: 'Riyadh, Saudi Arabia (2024-Present)' },
         { src: 'images/work-locations/buildingdepartment1.jpg', caption: 'Department of Buildings — MEP Engineering Intern', site: 'Batticaloa, Sri Lanka (2023)' },
         { src: 'images/work-locations/buildingdepartment2.jpg', caption: 'Department of Buildings — MEP Engineering Intern', site: 'Batticaloa, Sri Lanka (2023)' },
         { src: 'images/work-locations/Keells1.jpg', caption: 'Keells Consultants — Assistant Electrical Engineer', site: 'Colombo, Sri Lanka (2022)' },
