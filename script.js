@@ -1598,8 +1598,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const SECTION_MS = 10000;       // hold per section in normal mode
-        const FAST_SECTION_MS = 5000;   // hold per section in resume (fast) mode
+        const SECTION_MS = 300000;      // hold per section in normal mode (5 min)
+        const FAST_SECTION_MS = 300000; // hold per section in resume mode (5 min)
         const START_DELAY = 10000;      // auto-start after 10s if the user never scrolls
         const IDLE_RESUME_MS = 5000;    // after the user stops scrolling, resume after 5s
         const sectionIds = [
